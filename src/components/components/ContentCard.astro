@@ -1,0 +1,6 @@
+---
+interface Props { icon:string; title:string; description:string; href:string; label?:string; }
+const { icon,title,description,href,label="تصفح القسم" } = Astro.props;
+---
+<a class="card" href={href}><div class="icon">{icon}</div><h3>{title}</h3><p>{description}</p><span>{label} ←</span></a>
+<style>.card{display:block;padding:28px;border:1px solid var(--border);border-radius:20px;background:var(--surface);box-shadow:var(--shadow);transition:.22s}.card:hover{transform:translateY(-5px);border-color:var(--primary)}.icon{font-size:2.5rem}h3{margin:14px 0 7px}p{margin:0;color:var(--muted)}span{display:inline-block;margin-top:16px;color:var(--primary);font-weight:800}</style>

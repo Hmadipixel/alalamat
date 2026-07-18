@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContentCard from "../components/ContentCard.astro";
+const items = [{"icon": "🎵", "title": "الأناشيد", "description": "كلمات الأناشيد مصنفة حسب الموضوع.", "href": "/nasheeds"}, {"icon": "🖋️", "title": "القصائد", "description": "قصائد مرتبة حسب الشاعر والتصنيف.", "href": "/nasheeds"}, {"icon": "📜", "title": "التراث", "description": "نصوص مختارة من التراث العربي.", "href": "/nasheeds"}, {"icon": "⭐", "title": "المفضلة", "description": "أبرز النصوص المختارة.", "href": "/nasheeds"}];
+---
+<Layout title="الأناشيد والقصائد | العلامات" description="كلمات الأناشيد والقصائد في صفحات سهلة القراءة.">
+<section class="page-hero"><div class="container"><span class="eyebrow">العلامات</span><h1>الأناشيد والقصائد</h1><p>كلمات الأناشيد والقصائد في صفحات سهلة القراءة.</p></div></section>
+<section class="section"><div class="container"><div class="grid">{items.map((item)=><ContentCard {...item} label="فتح المحتوى" />)}</div></div></section>
+</Layout>
+<style>.page-hero{padding:72px 0;text-align:center;background:linear-gradient(180deg,var(--surface),var(--bg))}h1{font-size:clamp(2.7rem,7vw,5rem);margin:12px 0}p{color:var(--muted)}</style>

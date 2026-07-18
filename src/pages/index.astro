@@ -1,11 +1,12 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import ContentCard from "../components/ContentCard.astro";
+import { sections, latest } from "../data/content";
 ---
-
 <Layout>
-	<Welcome />
+<section class="hero"><div class="container hero-inner"><span class="eyebrow">موسوعة عربية منظمة</span><h1>كل معرفة تترك علامة</h1><p>منصة تجمع الكتب والمعلومات والمقالات والأناشيد والملفات بطريقة مرتبة وسهلة وسريعة.</p><form class="search" action="/knowledge"><input name="q" type="search" placeholder="ابحث عن كتاب أو معلومة أو موضوع" /><button type="submit">بحث</button></form><div class="actions"><a class="btn primary" href="#sections">استكشف الموسوعة</a><a class="btn secondary" href="/books">ابدأ بالكتب</a></div></div></section>
+<section id="sections" class="section"><div class="container"><div class="section-head"><span class="eyebrow">تصفح بسهولة</span><h2>أقسام الموسوعة</h2><p>اختر القسم الذي تريد البدء منه.</p></div><div class="grid">{sections.map((s)=><ContentCard {...s} />)}</div></div></section>
+<section class="section latest"><div class="container"><div class="section-head"><span class="eyebrow">جديد العلامات</span><h2>أحدث المحتويات</h2><p>نماذج أولية إلى أن تبدأ بإضافة محتواك الحقيقي.</p></div><div class="latest-grid">{latest.map((s)=><ContentCard {...s} label="فتح المحتوى" />)}</div></div></section>
+<section class="section"><div class="container vision"><div><span class="eyebrow">رؤية العلامات</span><h2>معرفة مرتبة بدلًا من البحث المشتت</h2><p>نبني موسوعة عربية أوضح وأسهل تنظيمًا من الموسوعات التقليدية.</p></div><a class="btn primary" href="/knowledge">ابدأ الآن</a></div></section>
 </Layout>
+<style>.hero{min-height:570px;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 80% 10%,#dbeafe 0,transparent 38%),linear-gradient(180deg,var(--surface),var(--bg))}:global(body.dark) .hero{background:radial-gradient(circle at 80% 10%,#172554 0,transparent 38%),linear-gradient(180deg,#0f172a,var(--bg))}.hero-inner{max-width:850px;padding:70px 0}h1{font-size:clamp(3rem,8vw,6rem);line-height:1.1;margin:18px 0}.hero p{font-size:1.12rem;color:var(--muted)}.search{display:flex;max-width:700px;margin:30px auto 18px;padding:8px;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}.search input{flex:1;border:0;outline:0;background:transparent;color:var(--text);padding:12px}.search button{border:0;background:var(--primary);color:white;border-radius:11px;padding:0 20px;font-weight:800}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.latest{background:color-mix(in srgb,var(--surface) 55%,var(--bg))}.latest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.vision{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:42px;border-radius:24px;background:#0f172a;color:white}.vision p{color:#cbd5e1}.vision h2{font-size:clamp(2rem,5vw,3rem);margin:12px 0}@media(max-width:800px){.latest-grid{grid-template-columns:1fr}.vision{flex-direction:column;text-align:center}.search{flex-direction:column}.search button{padding:12px}}</style>

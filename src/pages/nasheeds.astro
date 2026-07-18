@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="الأناشيد والقصائد | العلامات"
+  description="تصفح الأناشيد والقصائد والمؤلفات والمحتوى الصوتي."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">العلامات</span>
+      <h1>الأناشيد والقصائد</h1>
+      <p>اختر القسم الذي تريد تصفحه</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container categories">
+
+      <a class="category-card" href="/literature">
+        <div class="icon">🖋️</div>
+        <h2>القصائد</h2>
+        <p>قصائد مرتبة حسب الشاعر والتصنيف</p>
+        <span>فتح القصائد ←</span>
+      </a>
+
+      <a class="category-card" href="/nasheeds-list">
+        <div class="icon">🎵</div>
+        <h2>الأناشيد</h2>
+        <p>كلمات الأناشيد مصنفة حسب الموضوع</p>
+        <span>فتح الأناشيد ←</span>
+      </a>
+
+      <a class="category-card" href="/listen">
+        <div class="icon">🎧</div>
+        <h2>استمع</h2>
+        <p>التسجيلات الصوتية والتلاوات والمحاضرات</p>
+        <span>فتح الصوتيات ←</span>
+      </a>
+
+      <a class="category-card" href="/authors">
+        <div class="icon">📚</div>
+        <h2>المؤلفات</h2>
+        <p>تصفح الأعمال حسب المؤلف أو الشاعر</p>
+        <span>فتح المؤلفات ←</span>
+      </a>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+.hero{
+  padding:90px 0 65px;
+  text-align:center;
+  background:linear-gradient(135deg,var(--surface-2),var(--bg));
+  border-bottom:1px solid var(--border);
+}
+
+.hero h1{
+  margin:14px 0 5px;
+  font-size:clamp(2.7rem,7vw,4.8rem);
+}
+
+.hero p{
+  margin:0;
+  color:var(--muted);
+  font-size:1.1rem;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.category-card{
+  padding:34px 25px;
+  text-align:center;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.category-card:hover{
+  transform:translateY(-7px);
+  border-color:var(--primary);
+}
+
+.icon{
+  font-size:3rem;
+}
+
+.category-card h2{
+  margin:14px 0 6px;
+}
+
+.category-card p{
+  min-height:58px;
+  color:var(--muted);
+}
+
+.category-card span{
+  color:var(--primary);
+  font-weight:800;
+}
+
+@media(max-width:950px){
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:620px){
+  .categories{
+    grid-template-columns:1fr;
+  }
+}
+</style>
