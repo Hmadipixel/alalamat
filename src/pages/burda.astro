@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 const verses = [
   ["أَمِنْ تَذَكُّرِ جِيرَانٍ بِذِي سَلَمِ", "مَزَجْتَ دَمْعًا جَرَى مِنْ مُقْلَةٍ بِدَمِ"],
-  ["أَمْ هَبَّتِ الرِّيحُ مِنْ تِلْقَاءِ كَاظِمَةٍ", "وَأَوْمَضَ البَرْقُ فِي الظَّلْمَاءِ مِنْ إِضَمِ"],
+  ["أَمْ هَبَّتِ الرِّيحُ مِنْ تِلْقَاءِ كَاظِمَةٍ", "وَأَوْمَضَ البَرْقُ فِي الظَّلْمَاءِ مِنْ إِضَمِ"],
   ["فَمَا لِعَيْنَيْكَ إِنْ قُلْتَ اكْفُفَا هَمَتَا", "وَمَا لِقَلْبِكَ إِنْ قُلْتَ اسْتَفِقْ يَهِمِ"],
   ["أَيَحْسَبُ الصَّبُّ أَنَّ الحُبَّ مُنْكَتِمٌ", "مَا بَيْنَ مُنْسَجِمٍ مِنْهُ وَمُضْطَرِمِ"],
   ["لَوْلاَ الهَوَى لَمْ تَرِقْ دَمْعًا عَلَى طَلَلٍ", "وَلاَ أَرِقْتَ لِذِكْرِ البَانِ وَالْعَلَمِ"],
@@ -17,119 +17,77 @@ const verses = [
 ];
 ---
 
-<Layout title="قصيدة البردة | العلامات">
+<Layout title="قصيدة البردة | العلامات" description="قصيدة البردة للإمام البوصيري">
   <section class="hero">
     <div class="container">
-      <a class="back" href="/literature">← العودة إلى القصائد</a>
-      <span class="eyebrow">الأدب العربي</span>
+      <span class="eyebrow">القصائد</span>
       <h1>قصيدة البردة</h1>
       <p>للإمام شرف الدين البوصيري</p>
-
-      <div class="tags">
-        <span>قصيدة</span>
-        <span>الشعر العربي</span>
-        <span>مدح النبي ﷺ</span>
-        <span>12 بيتًا</span>
-      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container poem">
-      {
-        verses.map((verse, index) => (
-          <article class="verse">
-            <span class="number">{index + 1}</span>
-            <p>{verse[0]}</p>
-            <p>{verse[1]}</p>
-          </article>
-        ))
-      }
+      {verses.map((verse, index) => (
+        <article class="verse">
+          <span class="number">{index + 1}</span>
+          <div>{verse[0]}</div>
+          <div>{verse[1]}</div>
+        </article>
+      ))}
     </div>
   </section>
 </Layout>
 
 <style>
-.hero{
-  padding:70px 0 55px;
-  text-align:center;
-  background:linear-gradient(135deg,var(--surface-2),var(--bg));
-  border-bottom:1px solid var(--border);
-}
-
-.back{
-  display:block;
-  width:max-content;
-  margin:0 auto 25px;
-  color:var(--primary);
-  font-weight:800;
-}
-
-.hero h1{
-  margin:14px 0 4px;
-  font-size:clamp(2.5rem,7vw,4.5rem);
-}
-
-.hero p{
-  margin:0;
-  color:var(--muted);
-  font-size:1.2rem;
-}
-
-.tags{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:25px;
-}
-
-.tags span{
-  padding:7px 14px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:var(--surface);
-  color:var(--muted);
-}
-
-.poem{
-  max-width:850px;
-}
-
-.verse{
-  position:relative;
-  padding:28px 70px 28px 28px;
-  margin-bottom:18px;
-  text-align:center;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:20px;
-  box-shadow:var(--shadow);
-}
-
-.verse p{
-  margin:5px 0;
-  font-size:clamp(1.15rem,3vw,1.55rem);
-  font-weight:700;
-}
-
-.number{
-  position:absolute;
-  top:22px;
-  right:22px;
-  width:34px;
-  height:34px;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  background:var(--surface-2);
-  color:var(--primary);
-  font-weight:900;
-}
-
-@media(max-width:620px){
-  .verse{
-    padding:60px 16px 22px;
+  .hero {
+    padding: 70px 0;
+    text-align: center;
+    background: linear-gradient(180deg, var(--surface), var(--bg));
   }
-}
+
+  h1 {
+    font-size: clamp(2.7rem, 7vw, 5rem);
+    margin: 12px 0;
+  }
+
+  .hero p {
+    color: var(--muted);
+  }
+
+  .poem {
+    max-width: 760px;
+  }
+
+  .verse {
+    position: relative;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 50px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    font-size: 1.2rem;
+    line-height: 2;
+  }
+
+  .number {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: var(--surface-2);
+    color: var(--primary);
+    border-radius: 8px;
+    padding: 2px 9px;
+    font-size: .85rem;
+    font-weight: 800;
+  }
+
+  @media(max-width:620px) {
+    .verse {
+      padding: 22px 32px;
+      font-size: 1.05rem;
+    }
+  }
 </style>
