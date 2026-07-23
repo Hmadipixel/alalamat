@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL;
   <section class="section">
     <div class="container categories">
 
-      <a class="category-card" href={`${base}literature`}>
+      <a class="category-card" href={`${base}literature/`}>
         <div class="icon">🖋️</div>
         <h2>القصائد</h2>
         <p>قصائد مرتبة حسب الشاعر والتصنيف</p>
@@ -110,7 +110,8 @@ a.category-card:hover{
 }
 
 .disabled{
-  opacity:.75;
+  opacity:.65;
+  cursor:default;
 }
 
 @media(max-width:950px){
