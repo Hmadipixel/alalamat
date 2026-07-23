@@ -7,16 +7,17 @@ const base = import.meta.env.BASE_URL;
 
     <a class="brand" href={base}>العلامات</a>
 
-    <nav>
+    <nav class="menu">
       <a href={base}>الرئيسية</a>
-      <a href={`${base}books`}>الكتب</a>
-      <a href={`${base}knowledge`}>المعرفة</a>
-      <a href={`${base}literature`}>الأدب</a>
-      <a href={`${base}nasheeds`}>الصوتيات</a>
-      <a href={`${base}files`}>الملفات</a>
+      <a href={`${base}books/`}>الكتب</a>
+      <a href={`${base}knowledge/`}>المعرفة</a>
+      <a href={`${base}nasheeds/`}>الأناشيد والقصائد</a>
+      <a href={`${base}files/`}>الملفات</a>
     </nav>
 
-    <button id="themeBtn" class="theme">◐</button>
+    <button id="themeBtn" class="theme" aria-label="تغيير المظهر">
+      ◐
+    </button>
 
   </div>
 </header>
@@ -47,34 +48,70 @@ document.getElementById("themeBtn")?.addEventListener("click", () => {
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
+  flex-shrink:0;
   font-size:1.4rem;
   font-weight:900;
   color:var(--primary);
 }
 
-nav{
+.menu{
   display:flex;
+  align-items:center;
+  justify-content:center;
   gap:20px;
 }
 
-nav a:hover{
+.menu a{
+  white-space:nowrap;
+}
+
+.menu a:hover{
   color:var(--primary);
 }
 
 .theme{
+  flex-shrink:0;
   width:42px;
   height:42px;
   border-radius:12px;
   border:1px solid var(--border);
   background:var(--surface);
+  color:var(--text);
   cursor:pointer;
 }
 
 @media(max-width:760px){
-  nav{
+
+  .nav{
+    min-height:auto;
+    padding-top:12px;
+    padding-bottom:12px;
+    flex-wrap:wrap;
+  }
+
+  .brand{
+    order:1;
+  }
+
+  .theme{
+    order:2;
+  }
+
+  .menu{
+    order:3;
+    width:100%;
+    justify-content:flex-start;
+    overflow-x:auto;
+    gap:18px;
+    padding:8px 0 4px;
+    scrollbar-width:none;
+  }
+
+  .menu::-webkit-scrollbar{
     display:none;
   }
 }
