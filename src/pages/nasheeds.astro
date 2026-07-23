@@ -1,10 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
   title="الأناشيد والقصائد | العلامات"
-  description="تصفح الأناشيد والقصائد والمؤلفات والمحتوى الصوتي."
+  description="تصفح الأناشيد والقصائد والمحتويات المرتبطة بها."
 >
   <section class="hero">
     <div class="container">
@@ -17,33 +19,33 @@ import Layout from "../layouts/Layout.astro";
   <section class="section">
     <div class="container categories">
 
-      <a class="category-card" href="/literature">
+      <a class="category-card" href={`${base}literature`}>
         <div class="icon">🖋️</div>
         <h2>القصائد</h2>
         <p>قصائد مرتبة حسب الشاعر والتصنيف</p>
         <span>فتح القصائد ←</span>
       </a>
 
-      <a class="category-card" href="/nasheeds-list">
+      <div class="category-card disabled">
         <div class="icon">🎵</div>
         <h2>الأناشيد</h2>
         <p>كلمات الأناشيد مصنفة حسب الموضوع</p>
-        <span>فتح الأناشيد ←</span>
-      </a>
+        <span>قريبًا</span>
+      </div>
 
-      <a class="category-card" href="/listen">
+      <div class="category-card disabled">
         <div class="icon">🎧</div>
         <h2>استمع</h2>
-        <p>التسجيلات الصوتية والتلاوات والمحاضرات</p>
-        <span>فتح الصوتيات ←</span>
-      </a>
+        <p>التسجيلات والمحتويات الصوتية</p>
+        <span>قريبًا</span>
+      </div>
 
-      <a class="category-card" href="/authors">
+      <div class="category-card disabled">
         <div class="icon">📚</div>
         <h2>المؤلفات</h2>
         <p>تصفح الأعمال حسب المؤلف أو الشاعر</p>
-        <span>فتح المؤلفات ←</span>
-      </a>
+        <span>قريبًا</span>
+      </div>
 
     </div>
   </section>
@@ -84,7 +86,7 @@ import Layout from "../layouts/Layout.astro";
   transition:transform .2s ease,border-color .2s ease;
 }
 
-.category-card:hover{
+a.category-card:hover{
   transform:translateY(-7px);
   border-color:var(--primary);
 }
@@ -105,6 +107,10 @@ import Layout from "../layouts/Layout.astro";
 .category-card span{
   color:var(--primary);
   font-weight:800;
+}
+
+.disabled{
+  opacity:.75;
 }
 
 @media(max-width:950px){

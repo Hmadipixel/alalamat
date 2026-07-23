@@ -1,15 +1,19 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <header class="header">
   <div class="container nav">
 
-    <a class="brand" href="/">العلامات</a>
+    <a class="brand" href={base}>العلامات</a>
 
     <nav>
-      <a href="/">الرئيسية</a>
-      <a href="/books">الكتب</a>
-      <a href="/knowledge">المعرفة</a>
-      <a href="/literature">الأدب</a>
-      <a href="/nasheeds">الصوتيات</a>
-      <a href="/files">الملفات</a>
+      <a href={base}>الرئيسية</a>
+      <a href={`${base}books`}>الكتب</a>
+      <a href={`${base}knowledge`}>المعرفة</a>
+      <a href={`${base}literature`}>الأدب</a>
+      <a href={`${base}nasheeds`}>الصوتيات</a>
+      <a href={`${base}files`}>الملفات</a>
     </nav>
 
     <button id="themeBtn" class="theme">◐</button>
@@ -18,8 +22,9 @@
 </header>
 
 <script>
-document.getElementById("themeBtn")?.addEventListener("click",()=>{
+document.getElementById("themeBtn")?.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+
   localStorage.setItem(
     "theme",
     document.body.classList.contains("dark") ? "dark" : "light"
@@ -36,24 +41,29 @@ document.getElementById("themeBtn")?.addEventListener("click",()=>{
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);
 }
+
 .nav{
   min-height:70px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
+
 .brand{
   font-size:1.4rem;
   font-weight:900;
   color:var(--primary);
 }
+
 nav{
   display:flex;
   gap:20px;
 }
+
 nav a:hover{
   color:var(--primary);
 }
+
 .theme{
   width:42px;
   height:42px;
@@ -62,6 +72,7 @@ nav a:hover{
   background:var(--surface);
   cursor:pointer;
 }
+
 @media(max-width:760px){
   nav{
     display:none;
