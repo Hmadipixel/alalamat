@@ -1,10 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContentCard from "../components/ContentCard.astro";
-const items = [{"icon": "📄", "title": "ملفات PDF", "description": "كتب وتقارير ومراجع.", "href": "/files"}, {"icon": "🗂️", "title": "قوالب", "description": "قوالب جاهزة للاستخدام.", "href": "/files"}, {"icon": "📊", "title": "جداول", "description": "ملفات بيانات وتنظيم.", "href": "/files"}, {"icon": "🧾", "title": "مراجع", "description": "مصادر ووثائق مساعدة.", "href": "/files"}];
+const items = [
+  {icon:"📄",title:"ملفات PDF",description:"مكان منظم للكتب والتقارير والمراجع بصيغة PDF.",href:"/files/pdf/"},
+  {icon:"🗂️",title:"القوالب",description:"قوالب جاهزة للدراسة والتلخيص والتنظيم.",href:"/files/templates/"},
+  {icon:"📊",title:"الجداول",description:"جداول متابعة وخطط وقوائم تنظيم قابلة للتوسعة.",href:"/files/tables/"},
+  {icon:"🧾",title:"المراجع",description:"فهرس للمصادر والوثائق التي تدعم محتوى العلامات.",href:"/files/references/"}
+];
 ---
 <Layout title="الملفات | العلامات" description="ملفات ومصادر مفيدة قابلة للتصفح والتنزيل.">
-<section class="page-hero"><div class="container"><span class="eyebrow">العلامات</span><h1>الملفات</h1><p>ملفات ومصادر مفيدة قابلة للتصفح والتنزيل.</p></div></section>
-<section class="section"><div class="container"><div class="grid">{items.map((item)=><ContentCard {...item} label="فتح المحتوى" />)}</div></div></section>
+<section class="page-hero"><div class="container"><span class="eyebrow">العلامات</span><h1>الملفات</h1><p>مكتبة منظمة للملفات والقوالب والجداول والمراجع.</p></div></section>
+<section class="section"><div class="container"><div class="grid">{items.map((item)=><ContentCard {...item} label="فتح القسم" />)}</div></div></section>
 </Layout>
-<style>.page-hero{padding:72px 0;text-align:center;background:linear-gradient(180deg,var(--surface),var(--bg))}h1{font-size:clamp(2.7rem,7vw,5rem);margin:12px 0}p{color:var(--muted)}</style>
+<style>.page-hero{padding:72px 0;text-align:center;background:linear-gradient(180deg,var(--surface),var(--bg))}h1{font-size:clamp(2.7rem,7vw,5rem);margin:12px 0}.page-hero p{color:var(--muted)}</style>

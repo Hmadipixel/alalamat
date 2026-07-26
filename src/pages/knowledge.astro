@@ -1,10 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContentCard from "../components/ContentCard.astro";
-const items = [{"icon": "🤖", "title": "الذكاء الاصطناعي", "description": "أدوات ومفاهيم وتطبيقات عملية.", "href": "/knowledge"}, {"icon": "🕌", "title": "المعرفة الإسلامية", "description": "محتوى منظم وسهل المراجعة.", "href": "/knowledge"}, {"icon": "🌍", "title": "التاريخ والجغرافيا", "description": "مواضيع موثقة ومرتبة.", "href": "/knowledge"}, {"icon": "💡", "title": "المهارات", "description": "تعلم مهارات جديدة خطوة بخطوة.", "href": "/knowledge"}];
+const items = [
+  {icon:"🤖",title:"الذكاء الاصطناعي",description:"تعريفات وأدوات واستخدامات عملية للذكاء الاصطناعي.",href:"/knowledge/ai/"},
+  {icon:"🕌",title:"المعرفة الإسلامية",description:"مداخل مبسطة للقرآن والحديث والسيرة والأخلاق والعبادات.",href:"/knowledge/islamic/"},
+  {icon:"🌍",title:"التاريخ والجغرافيا",description:"أساسيات لفهم المكان والزمان والأحداث والعالم من حولنا.",href:"/knowledge/history-geography/"},
+  {icon:"💡",title:"المهارات",description:"طرق عملية للتعلم والتنظيم والتواصل وحل المشكلات.",href:"/knowledge/skills/"}
+];
 ---
 <Layout title="المعرفة | العلامات" description="مقالات ومعلومات مرتبة في مختلف المجالات.">
-<section class="page-hero"><div class="container"><span class="eyebrow">العلامات</span><h1>المعرفة</h1><p>مقالات ومعلومات مرتبة في مختلف المجالات.</p></div></section>
-<section class="section"><div class="container"><div class="grid">{items.map((item)=><ContentCard {...item} label="فتح المحتوى" />)}</div></div></section>
+<section class="page-hero"><div class="container"><span class="eyebrow">العلامات</span><h1>المعرفة</h1><p>معلومات قصيرة ومنظمة يمكن الرجوع إليها بسرعة.</p></div></section>
+<section class="section"><div class="container"><div class="grid">{items.map((item)=><ContentCard {...item} label="فتح القسم" />)}</div></div></section>
 </Layout>
-<style>.page-hero{padding:72px 0;text-align:center;background:linear-gradient(180deg,var(--surface),var(--bg))}h1{font-size:clamp(2.7rem,7vw,5rem);margin:12px 0}p{color:var(--muted)}</style>
+<style>.page-hero{padding:72px 0;text-align:center;background:linear-gradient(180deg,var(--surface),var(--bg))}h1{font-size:clamp(2.7rem,7vw,5rem);margin:12px 0}.page-hero p{color:var(--muted)}</style>

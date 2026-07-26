@@ -1,10 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContentCard from "../components/ContentCard.astro";
-const items = [{"icon": "📗", "title": "تطوير الذات", "description": "أفكار عملية مختصرة ومنظمة.", "href": "/books"}, {"icon": "📙", "title": "الأعمال", "description": "الإدارة والتسويق وريادة الأعمال.", "href": "/books"}, {"icon": "📕", "title": "التاريخ", "description": "أحداث وشخصيات وكتب تاريخية.", "href": "/books"}, {"icon": "📘", "title": "العلوم", "description": "المفاهيم العلمية بأسلوب واضح.", "href": "/books"}];
+const items = [
+  {icon:"📗",title:"تطوير الذات",description:"مبادئ عملية لبناء العادات وتحسين التعلم وإدارة الوقت.",href:"/books/self-development/"},
+  {icon:"📙",title:"الأعمال",description:"أساسيات الإدارة والتخطيط والتسويق وريادة الأعمال.",href:"/books/business/"},
+  {icon:"📕",title:"التاريخ",description:"مدخل مبسط لفهم الأحداث والشخصيات والاستفادة من الماضي.",href:"/books/history/"},
+  {icon:"📘",title:"العلوم",description:"مفاهيم علمية أساسية بأسلوب واضح ومختصر.",href:"/books/science/"}
+];
 ---
 <Layout title="الكتب | العلامات" description="ملخصات مركزة وفوائد عملية من الكتب.">
-<section class="page-hero"><div class="container"><span class="eyebrow">العلامات</span><h1>الكتب</h1><p>ملخصات مركزة وفوائد عملية من الكتب.</p></div></section>
-<section class="section"><div class="container"><div class="grid">{items.map((item)=><ContentCard {...item} label="فتح المحتوى" />)}</div></div></section>
+<section class="page-hero"><div class="container"><span class="eyebrow">العلامات</span><h1>الكتب</h1><p>ابدأ بموضوع ثم وسّع معرفتك خطوة بخطوة.</p></div></section>
+<section class="section"><div class="container"><div class="grid">{items.map((item)=><ContentCard {...item} label="فتح القسم" />)}</div></div></section>
 </Layout>
-<style>.page-hero{padding:72px 0;text-align:center;background:linear-gradient(180deg,var(--surface),var(--bg))}h1{font-size:clamp(2.7rem,7vw,5rem);margin:12px 0}p{color:var(--muted)}</style>
+<style>.page-hero{padding:72px 0;text-align:center;background:linear-gradient(180deg,var(--surface),var(--bg))}h1{font-size:clamp(2.7rem,7vw,5rem);margin:12px 0}.page-hero p{color:var(--muted)}</style>
